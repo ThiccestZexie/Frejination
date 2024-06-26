@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sample Comic Site</title>
+    <title>Frejination</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
         /* Additional styling to handle horizontal scrolling */
@@ -14,32 +14,61 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
+
     </style>
 </head>
+
+
 <body class="bg-gray-900 text-white text-center font-mono">
     <!-- Main Container -->
-    <div class="container mx-auto p-4">
-        <!-- Header -->
-        <header class="text-center mb-8">
-            <h1 class="text-5xl font-bold mb-4">Title Logo or Smt</h1>
-            <div class="bg-cover bg-center h-64 rounded-lg shadow-lg" style="background-image: url('path-to-your-background-image.jpg');">
-                <!-- Cool Background -->
-            </div>
-        </header>
+<div class="full-width-container p-4 w-full relative flex items-center justify-center" style="height: 100vh; display: flex; align-items: center; justify-content: center; background-image: url('../src/Images/knight.jpg'); background-size: contain; background-position: center; background-repeat: repeat;">
+    
+    <button id="touchMeButton" class="absolute top-0 right-0 mt-4 mr-4 bg-transparent text-pink-500 py-2 px-4 border-white rounded hover:bg-white hover:text-gray-900 transition duration-300 ">
+        Touch me
+    </button>   
+
+    <!-- Landing page title -->
+    <header>
+        <h1 class="text-8xl text-red-800 font-semibold">Frejination</h1>
+    </header>   
+    
+    <!-- Scripts for buttons-->
+    <script>
+
+        // Reference to the button
+        const button = document.getElementById('touchMeButton');
+
+        // Function to handle the button click
+        function handleClick() {
+                 const charactersSection = document.getElementById('charactersSection');
+
+                // Scroll to the "Characters Section"
+                charactersSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        // Add event listener to the button
+        button.addEventListener('click', handleClick);        
+    </script>
+</div>
 
         <!-- Characters Section -->
-        <section class="mb-12">
-            <h2 class="text-3xl font-bold mb-6">Characters from Comics</h2>
-            <div class="flex justify-around space-x-4">
-                <!-- Placeholder for Characters -->
-                <div class="w-1/6 h-48 bg-gray-800 rounded-lg shadow-md flex items-center justify-center transform hover:scale-105 transition-transform duration-300">1</div>
-                <div class="w-1/6 h-48 bg-gray-800 rounded-lg shadow-md flex items-center justify-center transform hover:scale-105 transition-transform duration-300">2</div>
-                <div class="w-1/6 h-48 bg-gray-800 rounded-lg shadow-md flex items-center justify-center transform hover:scale-105 transition-transform duration-300">3</div>
-                <div class="w-1/6 h-48 bg-gray-800 rounded-lg shadow-md flex items-center justify-center transform hover:scale-105 transition-transform duration-300">4</div>
-                <div class="w-1/6 h-48 bg-gray-800 rounded-lg shadow-md flex items-center justify-center transform hover:scale-105 transition-transform duration-300">5</div>
-                <div class="w-1/6 h-48 bg-gray-800 rounded-lg shadow-md flex items-center justify-center transform hover:scale-105 transition-transform duration-300">6</div>
-            </div>
+        <section class="mt-36" id="charactersSection" style="height: 100vh;">
+            <h2 class="text-3xl font-mono mb-6">Concepts</h2>
+            <div id="characters-container" class="flex space-x-4 p-2">
+                <!-- Characters will be inserted here by JavaScript --> 
         </section>
+        <script>
+            const characters = ['Character 1', 'Character 2', 'Character 3', 'Character 4', 'Character 5', 'Character 6', 'Character 7'];
+
+            const character_container = document.getElementById('characters-container');
+
+            characters.forEach(characters => {
+                const characterDiv = document.createElement('div');
+                characterDiv.className = "w-1/6 h-48 bg-gray-800 rounded-lg shadow-md flex items-center justify-center transform hover:scale-105 transition-transform duration-300";
+                characterDiv.textContent = characters;
+                character_container.appendChild(characterDiv);
+            })
+        </script>
+
 
         <!-- Covers Section -->
 <section>
@@ -50,7 +79,7 @@
 </section>
         <script>
             // Data for the covers
-            const covers = ['Cover 1', 'Cover 2', 'Cover 3', 'Cover 4', 'Cover 5'];
+            const covers = ['Cover 1', 'Cover 2', 'Cover 3', 'Cover 4', 'Cover 5',];
 
             // Reference to the container where covers will be added
             const container = document.getElementById('covers-container');
