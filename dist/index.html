@@ -1,55 +1,70 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sample Comic Site</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Additional styling to handle horizontal scrolling */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
 </head>
-<body class="bg-gray-100 text-gray-900 font-mono">
+<body class="bg-gray-900 text-white text-center font-mono">
     <!-- Main Container -->
     <div class="container mx-auto p-4">
         <!-- Header -->
         <header class="text-center mb-8">
-            <h1 class="text-4xl font-bold mb-2">Title Logo or Smt</h1>
-            <div class="bg-cover bg-center h-48" style="background-image: url('path-to-your-background-image.jpg');">
+            <h1 class="text-5xl font-bold mb-4">Title Logo or Smt</h1>
+            <div class="bg-cover bg-center h-64 rounded-lg shadow-lg" style="background-image: url('path-to-your-background-image.jpg');">
                 <!-- Cool Background -->
             </div>
         </header>
 
         <!-- Characters Section -->
-        <section class="mb-8">
-            <h2 class="text-2xl mb-4 text-center">Characters from Comics</h2>
-            <div class="flex justify-around">
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold mb-6">Characters from Comics</h2>
+            <div class="flex justify-around space-x-4">
                 <!-- Placeholder for Characters -->
-                <div class="w-1/6 h-32 bg-gray-300 flex items-center justify-center">1</div>
-                <div class="w-1/6 h-32 bg-gray-300 flex items-center justify-center">2</div>
-                <div class="w-1/6 h-32 bg-gray-300 flex items-center justify-center">3</div>
-                <div class="w-1/6 h-32 bg-gray-300 flex items-center justify-center">4</div>
-                <div class="w-1/6 h-32 bg-gray-300 flex items-center justify-center">5</div>
-                <div class="w-1/6 h-32 bg-gray-300 flex items-center justify-center">6</div>
+                <div class="w-1/6 h-48 bg-gray-800 rounded-lg shadow-md flex items-center justify-center transform hover:scale-105 transition-transform duration-300">1</div>
+                <div class="w-1/6 h-48 bg-gray-800 rounded-lg shadow-md flex items-center justify-center transform hover:scale-105 transition-transform duration-300">2</div>
+                <div class="w-1/6 h-48 bg-gray-800 rounded-lg shadow-md flex items-center justify-center transform hover:scale-105 transition-transform duration-300">3</div>
+                <div class="w-1/6 h-48 bg-gray-800 rounded-lg shadow-md flex items-center justify-center transform hover:scale-105 transition-transform duration-300">4</div>
+                <div class="w-1/6 h-48 bg-gray-800 rounded-lg shadow-md flex items-center justify-center transform hover:scale-105 transition-transform duration-300">5</div>
+                <div class="w-1/6 h-48 bg-gray-800 rounded-lg shadow-md flex items-center justify-center transform hover:scale-105 transition-transform duration-300">6</div>
             </div>
         </section>
-        <!-- seperator-->
-        <section >
-<div class="columns-2">
-  <p>Well, let me tell you something, ...</p>
-  <p class="break-after-column">Sure, go ahead, laugh...</p>
-  <p>Maybe we can live without...</p>
-  <p>Look. If you think this is...</p>
-</div>
-        </section>
+
         <!-- Covers Section -->
-        <section>
-            <h2 class="text-2xl  mb-4">Covers</h2>
-            <div class="flex justify-around">
-                <!-- Placeholder for Covers -->
-                <div class="w-1/5 h-48 bg-gray-300 flex items-center justify-center">Cover 1</div>
-                <div class="w-1/5 h-48 bg-gray-300 flex items-center justify-center">Cover 2</div>
-                <div class="w-1/5 h-48 bg-gray-300 flex items-center justify-center">Cover 3</div>
-                <div class="w-1/5 h-48 bg-gray-300 flex items-center justify-center">Cover 4</div>
-                <div class="w-1/5 h-48 bg-gray-300 flex items-center justify-center">Cover 5</div>
-            </div>
-        </section>
+<section>
+    <h2 class="text-3xl font-bold mb-6">Covers</h2>
+    <div id="covers-container" class="flex overflow-x-scroll scrollbar-hide space-x-4 p-2">
+        <!-- Covers will be inserted here by JavaScript -->
+    </div>
+</section>
+        <script>
+            // Data for the covers
+            const covers = ['Cover 1', 'Cover 2', 'Cover 3', 'Cover 4', 'Cover 5'];
+
+            // Reference to the container where covers will be added
+            const container = document.getElementById('covers-container');
+
+            // Function to create a cover element
+            function createCover(coverName) {
+                return `<a href="#" class="w-1/5 flex-shrink-0 h-64 bg-gray-800 rounded-lg shadow-md flex items-center justify-center transform hover:scale-105 transition-transform duration-300">${coverName}</a>`;
+            }
+
+            // Generate and append covers to the container
+            covers.forEach(cover => {
+                container.innerHTML += createCover(cover);
+            });
+        </script>
     </div>
 </body>
-</html><!DOCTYPE html>
+</html>
